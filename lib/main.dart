@@ -1,9 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myflutterapp/flutter_maps/quakes_map_app/quakes_app.dart';
+// import 'package:myflutterapp/flutter_maps/simple_google_map/show_map.dart';
 
 //import 'ui/BillSplitter.dart';
-import 'ui/quizApp.dart';
+//import 'ui/quizApp.dart';
 //import 'ui/movieListView.dart';
+// import 'package:myflutterapp/parsing_json/json_parsing.dart';
+// import 'package:myflutterapp/parsing_json/json_parsing_map.dart';
+// import 'package:myflutterapp/weather_forecast/weather_forecast.dart';
 
 final ThemeData _appTheme = _buildAppTheme();
 
@@ -16,18 +21,35 @@ ThemeData _buildAppTheme() {
       primaryColor: Colors.green,
       scaffoldBackgroundColor: Colors.brown,
       backgroundColor: Colors.amber,
-      textTheme: TextTheme(bodyText2:TextStyle(fontSize: 16.5)));
+      textTheme: _appTextTheme(base.textTheme));
+}
+
+TextTheme _appTextTheme(TextTheme base) {
+  return base
+      .copyWith(
+        // headline1: base.headline1.copyWith(
+        //   fontWeight: FontWeight.w500,
+        // ),
+        // // ignore: deprecated_member_use
+        // title: base.title.copyWith(fontSize: 18.0),
+        button: base.button.copyWith(fontSize: 15),
+        // caption:
+        //     base.caption.copyWith(fontWeight: FontWeight.w400, fontSize: 14.0),
+        // // ignore: deprecated_member_use
+        // bodyText2: base.bodyText2.copyWith(fontSize: 16.5)
+      )
+      .apply(fontFamily: 'Lobster');
 }
 
 void main() => runApp(new MaterialApp(
-    theme: _appTheme,
+   // theme: _appTheme,
     // theme: ThemeData(
     //     brightness: Brightness.dark,
     //     primaryColor: Colors.grey[900],
     //     textTheme: TextTheme(
     //         headline: TextStyle(fontSize: 34.0, fontWeight: FontWeight.bold),
     //         body1: TextStyle(fontSize: 16.9, color: Colors.white))),
-    home: QuizApp()));
+    home: QuakesApp()));
 
 // class MyApp extends StatelessWidget {
 //   @override
